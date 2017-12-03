@@ -23,10 +23,13 @@ class Admin::RestaurantsController < ApplicationController
   end
 
   def update
-    if @restaurant.update_attributes(restaurant_params)
-      redirect_to restaurants_url
+    if @restaurant.update(restaurant_params)
+      flash[:notice] = "restaurant was successfully updated"
+      redirect_to admin_restaurant_path(@restaurant)      
     else
-      render  :action => :edit
+      render :edit
+      #redirect_to edit_admin_restaurant_url
+      flash[:alert] = "restaurant was failed to update"
     end
   end
 

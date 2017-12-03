@@ -32,7 +32,7 @@ class Admin::RestaurantsController < ApplicationController
 
   def destroy
     @restaurant.destroy
-    redirect_to restaurants_url
+    redirect_to admin_restaurants_url
   end
 
   private

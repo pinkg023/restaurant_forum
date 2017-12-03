@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   root "restaurants#index"        #首頁指向 RestaurantsController 的 index action
 
   namespace :admin do
+    resources :restaurants
     root "restaurants#index"
   end
+
 
 end

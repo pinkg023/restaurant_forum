@@ -1,3 +1,5 @@
+
+
 <% if @restaurant.errors.any? %>
   <h2>We have some errors here !</h2>
   <ul>
@@ -9,6 +11,7 @@
 
 <p><%= flash[:alert] %></p>
 
+<!--
 
 <%= form_for  [:admin, @restaurant] do |f| %>
   <%= f.label :name, "Name" %>
@@ -28,3 +31,52 @@
 
   <%= f.submit %>
 <% end %>
+
+-->
+
+<div class="form container">
+
+  <%= form_for  [:admin, @restaurant] do |f| %>
+
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name , class: "form-control" %>
+  </div>
+
+
+  <div class="form-group">
+    <%= f.label :tel %>
+    <%= f.text_field :tel , class: "form-control" %>
+  </div>
+
+
+  <div class="form-group">
+    <%= f.label :address %>
+    <%= f.text_field :address, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :opening_hours %>
+    <%= f.text_field :opening_hours, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_field :description, class: "form-control" %>
+  </div>
+
+
+  <div class="form-group">
+    <%= f.label :image, "Photo" %>
+  </div>
+  <div class = "thumbnail">
+    <%= image_tag @restaurant.image if @restaurant.image? %>
+  </div>
+  <%= f.file_field :image %>
+
+
+
+    <%= f.submit %>
+  <% end %>
+
+</div>
